@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfinityTech</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
+    <script defer src="pesquisa.js"></script>
+</head>
+<body>
+
+        <div class="container">
+            <div class="elemento1">
+                <img src="img/infinity_logo.png" alt="Logo" id="Logo">
+            </div>
+            <div class="elemento2" id="barra">
+                <input type="text" name="" id="search" placeholder="Pesquisar Banco" onkeyup="search()" >
+                <div class="search-btn"> 
+                    <img src="img/search.png" alt="" id="icone">
+                </div>
+            </div>
+        </div>
+        <div class="bancos" id="bancos_classe">
+        </div>
+        <script>
+            
+            let divBancos = document.querySelector("#bancos_classe")
+            
+            fetch("dados.json").then((response) =>{
+                response.json().then((dados) =>{
+                    dados.banco_json.map((banco_json) => {
+                        divBancos.innerHTML += 
+                        `<li> 
+                            ${banco_json.id} 
+                            ${banco_json.nome}
+                            ${banco_json.imagem} 
+                            ${banco_json.link}
+                            ${banco_json.descricao} 
+ 
+                            </li>`
+                    })
+                })
+            })
+         </script>
+    
+           
+        
+        
+</body>
+</html>
