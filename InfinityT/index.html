@@ -8,7 +8,7 @@
     <script defer src="pesquisa.js"></script>
 </head>
 <body>
-
+    <a href=""><img src="img/SideMenu.png" alt="" id="sideMenu"></a>
         <div class="container">
             <div class="elemento1">
                 <img src="img/infinity_logo.png" alt="Logo" id="Logo">
@@ -30,13 +30,15 @@
                         dados.banco_json.map((banco_json) => {
                             divBancos.innerHTML += 
                             `<li name="dados_banco"> 
-                                <div id='div_img'>
-                                <img src="${banco_json.imagem} "id="logo_banco">
-                                </div>
-                                <div id='info_banco'>
-                                    ${banco_json.nome} 
-                                    ${banco_json.link} 
-                                    ${banco_json.descricao}
+                                <div class='container_banco'>
+                                    <div id='div_img'>
+                                        <img src="${banco_json.imagem} "id="logo_banco">
+                                    </div>
+                                    <div id='info_banco'>
+                                        <p><b>${banco_json.nome}</b></p> 
+                                        <p><a href='${banco_json.link}'>${banco_json.link}</a></p> 
+                                        <p>${banco_json.descricao}</p>
+                                    </div>
                                 </div>
                             </li>`
                         })
